@@ -2,8 +2,11 @@
 
     <ion-navbar>
         <ion-row>
-            <ion-col>
+            <ion-col col-11>
                 <ion-title>{{username}}</ion-title>
+            </ion-col>
+            <ion-col col-1>
+                <ion-icon name="options" (click)="openMenu()"></ion-icon>
             </ion-col>
         </ion-row>
     </ion-navbar>
@@ -30,7 +33,4 @@
 </ion-content>
 
 <ion-content padding>
-    <ion-row style="min-height: 70vh">
-    </ion-row>
-    <button ion-button clear (click)="openMenu()">options</button>
 </ion-content>
