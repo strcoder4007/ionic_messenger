@@ -23,26 +23,26 @@ export class HomePage {
         //getting images
         this.userImagesJunk = this.http.get('https://jsonplaceholder.typicode.com/photos');
         this.userImagesJunk.map(res => res.json())
-            .subscribe(userImagesJunk => {
-                //console.log('my images', userImagesJunk);
-                this.userImages = userImagesJunk;
+            .subscribe(userImagesJunk1 => {
+                //console.log('my images', userImagesJunk1);
+                this.userImages = userImagesJunk1;
             })
 
         //getting users
         this.usersJunk = this.http.get('https://jsonplaceholder.typicode.com/users');
         this.usersJunk
             .map(res => res.json())
-            .subscribe(usersJunk => {
-                //console.log('my data: ', usersJunk);
-                this.users = usersJunk;
+            .subscribe(usersJunk1 => {
+                console.log('my data: ', usersJunk1);
+                this.users = usersJunk1;
             })
 
     }
 
 
 
-    gotoChatPage() {
-        this.navCtrl.push(ChatPage);
+    gotoChatPage(id: string) {
+        this.navCtrl.push(ChatPage, this.users[parseInt(id)-1]);
     }
 
 }

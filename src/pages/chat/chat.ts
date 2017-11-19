@@ -10,7 +10,14 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 })
 export class ChatPage {
 
+    id: number;
+    username: string;
+
+
     constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionsheetCtrl: ActionSheetController) {
+
+        this.id = parseInt(navParams.get('id'));
+        this.username = navParams.get('username');
     }
 
     ionViewDidLoad() {

@@ -6,12 +6,17 @@
 
 <ion-content>
     <ion-grid>
-        <ion-row *ngFor="let user of users; index as i" class="userspace">
+        <ion-row *ngFor="let user of users; index as i" class="userspace" (click)="gotoChatPage(user.id)">
             <ion-col col-2>
-                <img src="{{userImages[i].thumbnailUrl}}">
+                <img src="{{userImages[i].thumbnailUrl || 'assets/default.png'}}">
             </ion-col>
             <ion-col col-10>
+                <ion-row class="username">
                     {{user.username}}
+                </ion-row>
+                <ion-row class="chat">
+                    {{user.company.catchPhrase}}
+                </ion-row>
             </ion-col>
         </ion-row>
     </ion-grid>

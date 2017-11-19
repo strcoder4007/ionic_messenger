@@ -1,8 +1,15 @@
 page-home {
     .userspace {
-        height: 80px;
+        height: 67px;
     }
     .userspace:hover {
         background-color: #b6dcfe;
+    }
+    .username {
+        font-size: 1.5em;
+    }
+    .chat {
+        color: gray;
+        font-size: 1.3m;
     }
 }
