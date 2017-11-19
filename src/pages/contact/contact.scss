@@ -1,3 +1,11 @@
 page-contact {
-
+    ion-item {
+        min-height: 50px !important;
+    }
+    .rightChat {    
+        text-align: right;
+    }
+    .leftChat {
+        text-align: left;
+    }
 }

@@ -1,0 +1,57 @@
+[
+    {
+        "content": "hello",
+        "user": "right",
+        "timestamp": "1:30pm"
+    },
+    {
+        "content": "hi",
+        "user": "left",
+        "timestamp": "1:31pm"
+    },
+    {
+        "content": "this is the chat page",
+        "user": "right",
+        "timestamp": "1:33pm"
+    },
+    {
+        "content": "cool",
+        "user": "left",
+        "timestamp": "1:33pm"
+    },
+    {
+        "content": "the button on the top-right allows you to go private.",
+        "user": "right",
+        "timestamp": "1:35pm"
+    },
+    {
+        "content": "messages in private mode lasts for 5 secs and taking screenshot is restricted",
+        "user": "right",
+        "timestamp": "1:36pm"
+    },
+    {
+        "content": "nice!",
+        "user": "left",
+        "timestamp": "1:37pm"
+    },
+    {
+        "content": "seems useful",
+        "user": "left",
+        "timestamp": "1:38pm"
+    },
+    {
+        "content": "wait there's more",
+        "user": "right",
+        "timestamp": "1:39pm"
+    },
+    {
+        "content": "the clock button below allows you to send messages at a specific time automatically.",
+        "user": "right",
+        "timestamp": "1:41pm"
+    },
+    {
+        "content": "cool!",
+        "user": "left",
+        "timestamp": "1:42pm"
+    }
+]

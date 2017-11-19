@@ -10,8 +10,15 @@
   <ion-list>
     <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+        <div *ngFor="let chat in chats">
+            <div *ngIf="chat.user == 'right'; then rightBlock; else leftBlock"></div>
+            <ng-template #rightBlock>
+                    <span [innerHTML]="chat.content" class="rightChat"></span>
+            </ng-template>
+            <ng-template #leftBlock>
+                <span [innerHTML]="chat.content" class="leftChat"></span>
+            </ng-template>
+        </div>
     </ion-item>
   </ion-list>
 </ion-content>
