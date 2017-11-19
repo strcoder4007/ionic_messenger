@@ -7,13 +7,9 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-    chats = [];
 
     constructor(public navCtrl: NavController) {
 
-    }
-
-    getChats() {
     }
 
 }

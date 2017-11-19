@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
-import{ ChatPage } from '../chat/chat';
+import { ChatPage } from '../chat/chat';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -12,32 +12,37 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-    users: Observable<any>;
-    userImages: Observable<any>;
+    usersJunk: Observable<any>;
+    userImagesJunk: Observable<any>;
+    users: Array<any>;
+    userImages: Array<any>;
 
     constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http) {
 
-        //getting users
-        this.users = this.http.get('https://jsonplaceholder.typicode.com/users');
-        this.users
-        .map(res => res.json())
-        .subscribe(users => {
-          console.log('my data: ', users);
-        })
 
         //getting images
-        this.userImages = this.http.get('https://jsonplaceholder.typicode.com/photos');
-        this.userImages.map(res => res.json())
-        .subscribe(userImages => {
-            console.log('my images', userImages);
-        })
+        this.userImagesJunk = this.http.get('https://jsonplaceholder.typicode.com/photos');
+        this.userImagesJunk.map(res => res.json())
+            .subscribe(userImagesJunk => {
+                //console.log('my images', userImagesJunk);
+                this.userImages = userImagesJunk;
+            })
+
+        //getting users
+        this.usersJunk = this.http.get('https://jsonplaceholder.typicode.com/users');
+        this.usersJunk
+            .map(res => res.json())
+            .subscribe(usersJunk => {
+                //console.log('my data: ', usersJunk);
+                this.users = usersJunk;
+            })
 
     }
 
 
 
     gotoChatPage() {
-        this.navCtrl.push(ChatPage);    
+        this.navCtrl.push(ChatPage);
     }
 
 }

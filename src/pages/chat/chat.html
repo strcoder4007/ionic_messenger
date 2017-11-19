@@ -1,16 +1,33 @@
 <ion-header>
 
-  <ion-navbar>
-      <ion-row>
-          <ion-col col-md-10>
-            <ion-title>chat</ion-title>
-          </ion-col>
-          <ion-col col-md-2>
-          </ion-col>
-      </ion-row>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-row>
+            <ion-col>
+                <ion-title>chat</ion-title>
+            </ion-col>
+        </ion-row>
+    </ion-navbar>
 
 </ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>Follow us on Twitter</ion-list-header>
+        <ion-item>
+            <!--
+            <div *ngFor="let chat in chats">
+                <div *ngIf="chat.user == 'right'; then rightBlock; else leftBlock"></div>
+                <ng-template #rightBlock>
+                    <span [innerHTML]="chat.content" class="rightChat"></span>
+                </ng-template>
+                <ng-template #leftBlock>
+                    <span [innerHTML]="chat.content" class="leftChat"></span>
+                </ng-template>
+            </div>
+        -->
+        </ion-item>
+    </ion-list>
+</ion-content>
 
 <ion-content padding>
     <ion-row style="min-height: 70vh">
