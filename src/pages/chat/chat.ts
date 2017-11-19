@@ -56,6 +56,7 @@ export class ChatPage {
                     text: 'Go private',
                     icon: !this.platform.is('ios') ? 'lock' : null,
                     handler: () => {
+                        this.showConfirm();
                         console.log('Share clicked');
                     }
                 },
