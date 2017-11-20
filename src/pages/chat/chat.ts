@@ -53,7 +53,6 @@ export class ChatPage {
             buttons: [
                 {
                     text: 'See profile',
-                    role: 'destructive',
                     icon: !this.platform.is('ios') ? 'person' : null,
                     handler: () => {
                         console.log('Delete clicked');
