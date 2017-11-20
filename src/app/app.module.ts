@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ChatPage } from '../pages/chat/chat';
+import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChatPage } from '../pages/chat/chat';
     ContactPage,
     HomePage,
     TabsPage,
-    ChatPage
+    ChatPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { ChatPage } from '../pages/chat/chat';
     ContactPage,
     HomePage,
     TabsPage,
-    ChatPage
+    ChatPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
