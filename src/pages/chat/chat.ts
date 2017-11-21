@@ -14,6 +14,7 @@ export class ChatPage {
     username: string;
 
 
+
     constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionsheetCtrl: ActionSheetController) {
 
         this.id = parseInt(navParams.get('id'));

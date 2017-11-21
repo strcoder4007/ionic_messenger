@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
 import { ChatPage } from '../chat/chat';
@@ -16,6 +16,8 @@ export class HomePage {
     userImagesJunk: Observable<any>;
     users: Array<any>;
     userImages: Array<any>;
+
+    @Output() hideTabsEmit: EventEmitter <boolean> = new EventEmitter();
 
     constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http: Http) {
 
@@ -43,6 +45,8 @@ export class HomePage {
 
     gotoChatPage(id: string) {
         this.navCtrl.push(ChatPage, this.users[parseInt(id)-1]);
+        console.log("aksuusbfd");
+        this.hideTabsEmit.emit(true);
     }
 
 }
