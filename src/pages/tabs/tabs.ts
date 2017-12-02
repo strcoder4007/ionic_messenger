@@ -19,10 +19,13 @@ export class TabsPage {
     hide: boolean = false;
 
     constructor(public events: Events, public navCtrl: NavController) {
-        events.subscribe('hideTabEmit', (hide, userObj) => {
+        
+
+        events.subscribe('hideTabEmit', (hide) => {
             this.hide = hide;
-            this.navCtrl.push(ChatPage, userObj);
+            //this.navCtrl.push(ChatPage, userObj);
         });
+        
     }
 
 }

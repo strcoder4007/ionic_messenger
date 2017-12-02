@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Navbar } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Navbar, Events } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 
 
@@ -23,6 +23,7 @@ export class ChatPage {
         public navCtrl: NavController,
         public navParams: NavParams,
         public alertCtrl: AlertController,
+        public events: Events,
         public actionsheetCtrl: ActionSheetController) {
 
         this.id = parseInt(navParams.get('id'));
@@ -30,11 +31,13 @@ export class ChatPage {
     }
 
     ionViewDidLoad() {
+        this.events.publish("hideTabEmit", true);
         this.navBar.backButtonClick = (e: UIEvent) => {
             this.navCtrl.pop();
-            this.navCtrl.push(TabsPage);
+            //this.navCtrl.push(TabsPage);
+            console.log("popping ChatPage");
         }
-        console.log('ionViewDidLoad ChatPage');
+        console.log('entering ChatPage');
     }
 
     showConfirm() {

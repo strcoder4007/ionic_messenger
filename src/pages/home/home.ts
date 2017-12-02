@@ -24,6 +24,9 @@ export class HomePage {
         public events: Events
     ){
 
+        console.log("entering homepage");
+        
+
 
         //getting images
         this.userImagesJunk = this.http.get('https://jsonplaceholder.typicode.com/photos');
@@ -48,7 +51,8 @@ export class HomePage {
 
     gotoChatPage(id: string) {
         let userObj = this.users[parseInt(id)-1];
-        this.events.publish("hideTabEmit", true, userObj);
+        this.navCtrl.push(ChatPage, userObj);
+        //this.events.publish("hideTabEmit", true, userObj);
     }
 
 }
