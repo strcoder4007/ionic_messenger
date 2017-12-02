@@ -1,5 +1,7 @@
-<ion-tabs tabsPlacement="top">
-  <ion-tab [root]="tab1Root" tabIcon="chatboxes" (hideTabsEmit)="onHideTabsEmit($event)"></ion-tab>
-  <ion-tab [root]="tab2Root" tabIcon="create"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="contacts"></ion-tab>
-</ion-tabs>
+<ng-template [ngIf]="!hide">
+    <ion-tabs tabsPlacement="top">
+        <ion-tab [root]="tab1Root" tabIcon="chatboxes"></ion-tab>
+        <ion-tab [root]="tab2Root" tabIcon="create"></ion-tab>
+        <ion-tab [root]="tab3Root" tabIcon="contacts"></ion-tab>
+    </ion-tabs>
+</ng-template>

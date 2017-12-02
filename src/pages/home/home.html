@@ -1,25 +1,25 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Chats</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Chats</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-grid>
         <ion-row *ngFor="let user of users; index as i" class="userspace" (click)="gotoChatPage(user.id)">
-            <ion-col col-2>
-                <ng-template [ngIf]="userImages != undefined">
+            <ng-template [ngIf]="userImages != undefined">
+                <ion-col col-2>
                     <img src="{{userImages[i].thumbnailUrl || 'assets/default.png'}}">
-                </ng-template>
-            </ion-col>
-            <ion-col col-10>
-                <ion-row class="username">
-                    {{user.username}}
-                </ion-row>
-                <ion-row class="chat">
-                    {{user.company.catchPhrase}}
-                </ion-row>
-            </ion-col>
+                </ion-col>
+                <ion-col col-10>
+                    <ion-row class="username">
+                        {{user.username}}
+                    </ion-row>
+                    <ion-row class="chat">
+                        {{user.company.catchPhrase}}
+                    </ion-row>
+                </ion-col>
+            </ng-template>
         </ion-row>
     </ion-grid>
 </ion-content>

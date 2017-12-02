@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController, Navbar } from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 
+
+import { TabsPage } from  '../tabs/tabs';
+import { ProfilePage } from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -13,22 +16,31 @@ export class ChatPage {
     id: number;
     username: string;
 
+    @ViewChild(Navbar) navBar: Navbar;
 
-
-    constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public actionsheetCtrl: ActionSheetController) {
+    constructor(
+        public platform: Platform,
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public alertCtrl: AlertController,
+        public actionsheetCtrl: ActionSheetController) {
 
         this.id = parseInt(navParams.get('id'));
         this.username = navParams.get('username');
     }
 
     ionViewDidLoad() {
+        this.navBar.backButtonClick = (e: UIEvent) => {
+            this.navCtrl.pop();
+            this.navCtrl.push(TabsPage);
+        }
         console.log('ionViewDidLoad ChatPage');
     }
 
     showConfirm() {
         let confirm = this.alertCtrl.create({
             title: 'Go Private?',
-            message: 'User 2 has asked you to go private',
+            message: 'User2 has asked you to go private',
             buttons: [
                 {
                     text: 'Disagree',
@@ -56,7 +68,8 @@ export class ChatPage {
                     text: 'See profile',
                     icon: !this.platform.is('ios') ? 'person' : null,
                     handler: () => {
-                        console.log('Delete clicked');
+                        this.navCtrl.push(ProfilePage)
+                        console.log('See profile clicked');
                     }
                 },
                 {
@@ -64,21 +77,21 @@ export class ChatPage {
                     icon: !this.platform.is('ios') ? 'lock' : null,
                     handler: () => {
                         this.showConfirm();
-                        console.log('Share clicked');
+                        console.log('Go private clicked');
                     }
                 },
                 {
                     text: 'Time a message',
                     icon: !this.platform.is('ios') ? 'time' : null,
                     handler: () => {
-                        console.log('Play clicked');
+                        console.log('Time a message clicked');
                     }
                 },
                 {
                     text: 'Settings',
                     icon: !this.platform.is('ios') ? 'settings' : null,
                     handler: () => {
-                        console.log('Favorite clicked');
+                        console.log('Settings clicked');
                     }
                 },
                 {
@@ -94,4 +107,24 @@ export class ChatPage {
         actionSheet.present();
     }
 
+
+
+
 }
+
+
+/*
+
+
+    constructor(private navController: NavController){}
+    ionViewDidLoad() {
+      this.navBar.backButtonClick = (e:UIEvent)=>{
+       // todo something
+       this.navController.pop();
+      }
+    }
+
+
+
+
+*/
