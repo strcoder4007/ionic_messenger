@@ -16,13 +16,9 @@ export class TabsPage {
     tab2Root = AboutPage;
     tab3Root = ContactPage;
 
-    hide: boolean = false;
-
     constructor(public events: Events, public navCtrl: NavController) {
-        
 
         events.subscribe('hideTabEmit', (hide) => {
-            this.hide = hide;
             //this.navCtrl.push(ChatPage, userObj);
         });
         
