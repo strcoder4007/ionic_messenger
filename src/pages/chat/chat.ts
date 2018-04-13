@@ -18,15 +18,53 @@ export class ChatPage {
 
     id : number;
     username : string;
+    msgs = [];
+    env = "nothing";
+
 
     @ViewChild(Navbar)navBar : Navbar;
 
     constructor(public platform : Platform, public navCtrl : NavController, public navParams : NavParams, public alertCtrl : AlertController, public events : Events, public actionsheetCtrl : ActionSheetController) {
 
-        if (window.location == "http://localhost:8100/") 
-            alert("desktop");
-        else 
-            alert("mobile");
+        if (window.location.toString() == "http://localhost:8100/") {
+            this.env = "desktop";
+        }
+        else {
+            this.env = "mobile";
+
+        }
+
+        let date = new Date();
+
+        this.msgs.push({
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+(date.getMinutes().toString().length == 1 ? '0'+date.getMinutes() : date.getMinutes().toString()),
+            msg : "hey",
+            env: "d"
+        });
+        this.msgs.push({
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+3).toString().length == 1 ? '0'+(date.getMinutes()+3) : (date.getMinutes()+3).toString()),
+            msg : "sup?",
+            env: "d"
+        });
+        this.msgs.push({
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+1).toString().length == 1 ? '0'+(date.getMinutes()+1) : (date.getMinutes()+1).toString()),
+            msg : "hi",
+            env: "m"
+        });
+        this.msgs.push({
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+5).toString().length == 1 ? '0'+(date.getMinutes()+5) : (date.getMinutes()+5).toString()),
+            msg : "suck a dick dumbshit!",
+            env: "m"
+        });
+        function compare(a,b) {
+            if (a.time < b.time)
+              return -1;
+            if (a.time > b.time)
+              return 1;
+            return 0;
+          }
+        this.msgs.sort(compare);
+        console.log(this.msgs);
         
         this.id = parseInt(navParams.get('id'));
         this.username = navParams.get('username');

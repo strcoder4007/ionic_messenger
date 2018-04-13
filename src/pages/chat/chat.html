@@ -14,7 +14,9 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-list *ngFor="let msg of msgs" no-lines>
+        <ion-item *ngIf="msg.env == 'd'" style="text-align:right">{{msg.msg}}</ion-item>
+        <ion-item *ngIf="msg.env == 'm'">{{msg.msg}}</ion-item>
+    </ion-list>
 </ion-content>
 
-<ion-content>
-</ion-content>
