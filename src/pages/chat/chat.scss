@@ -1,3 +1,16 @@
 page-chat {
-
+    .msgBox {
+        height: 40px;
+        width: 100%;
+    }
+    .sendBtn {
+        font-size: 40px;
+        color: #488aff;
+    }
+    .inputSection {
+        position: fixed;
+        bottom: 0px;
+    }
 }
+
+

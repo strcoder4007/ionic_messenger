@@ -27,32 +27,32 @@ export class ChatPage {
     constructor(public platform : Platform, public navCtrl : NavController, public navParams : NavParams, public alertCtrl : AlertController, public events : Events, public actionsheetCtrl : ActionSheetController) {
 
         if (window.location.toString() == "http://localhost:8100/") {
-            this.env = "desktop";
+            this.env = "d";
         }
         else {
-            this.env = "mobile";
+            this.env = "m";
 
         }
 
         let date = new Date();
 
         this.msgs.push({
-            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+(date.getMinutes().toString().length == 1 ? '0'+date.getMinutes() : date.getMinutes().toString()),
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()-5).toString().length == 1 ? '0'+(date.getMinutes()-5) : (date.getMinutes()-5).toString()),
             msg : "hey",
             env: "d"
         });
         this.msgs.push({
-            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+3).toString().length == 1 ? '0'+(date.getMinutes()+3) : (date.getMinutes()+3).toString()),
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()-3).toString().length == 1 ? '0'+(date.getMinutes()-3) : (date.getMinutes()-3).toString()),
             msg : "sup?",
             env: "d"
         });
         this.msgs.push({
-            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+1).toString().length == 1 ? '0'+(date.getMinutes()+1) : (date.getMinutes()+1).toString()),
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()-4).toString().length == 1 ? '0'+(date.getMinutes()-4) : (date.getMinutes()-4).toString()),
             msg : "hi",
             env: "m"
         });
         this.msgs.push({
-            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()+5).toString().length == 1 ? '0'+(date.getMinutes()+5) : (date.getMinutes()+5).toString()),
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+((date.getMinutes()-1).toString().length == 1 ? '0'+(date.getMinutes()-1) : (date.getMinutes()-1).toString()),
             msg : "suck a dick dumbshit!",
             env: "m"
         });
@@ -64,7 +64,6 @@ export class ChatPage {
             return 0;
           }
         this.msgs.sort(compare);
-        console.log(this.msgs);
         
         this.id = parseInt(navParams.get('id'));
         this.username = navParams.get('username');
@@ -171,6 +170,26 @@ export class ChatPage {
             });
         actionSheet.present();
     }
+
+    sendMsg() {
+        let curMsg = (<HTMLInputElement>document.getElementById("myMsg")).value;
+        let date = new Date();
+        this.msgs.push({
+            time : (date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours().toString()) +":"+(date.getMinutes().toString().length == 1 ? '0'+date.getMinutes() : date.getMinutes().toString()),
+            msg : curMsg,
+            env: this.env
+        });
+        function compare(a,b) {
+            if (a.time < b.time)
+              return -1;
+            if (a.time > b.time)
+              return 1;
+            return 0;
+          }
+        this.msgs.sort(compare);
+        (<HTMLInputElement>document.getElementById("myMsg")).value = "";
+    }
+
 
 }
 
